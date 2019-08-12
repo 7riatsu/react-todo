@@ -18,14 +18,21 @@ class App extends Component {
     console.log('Hello Input')
   }
 
-  addItem = () => {
+  addItem = (e) => {
+    // リンク遷移などのeventを無効化する
+    e.preventDefault()
     console.log('Add Item')
   }
 
   render() {
     return (
       <div className="App">
-        <TodoList addItem={this.addItem} />
+        <TodoList
+          addItem={this.addItem}
+          inputElement={this.inputElement}
+          handleInput={this.handleInput}
+          currentItem={this.state.currentItem}
+        />
       </div>
     );
   }
