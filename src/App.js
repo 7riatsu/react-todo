@@ -1,14 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
 import TodoList from './TodoList';
 
-function App() {
-  return (
-    <div className="App">
-      <TodoList />
-    </div>
-  );
+class App extends Component {
+  constructor() {
+    super()
+    this.state={
+      items: [],
+      currentItem: {
+        text: '',
+        key: ''
+      }
+    }
+  }
+
+  handleInput = (e) => {
+    console.log('Hello Input')
+  }
+
+  addItem = () => {
+    console.log('Add Item')
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <TodoList addItem={this.addItem} />
+      </div>
+    );
+  }
 }
 
 export default App;
