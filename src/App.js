@@ -26,9 +26,19 @@ class App extends Component {
   }
 
   addItem = (e) => {
-    // リンク遷移などのeventを無効化する
     e.preventDefault()
-    console.log('Add Item')
+    const newItem = this.state.currentItem
+    if (newItem.text !== '') {
+      console.log(newItem)
+      const items = [...this.state.items, newItem]
+      this.setState({
+        items: items,
+        currentItem: {
+          text: '',
+          key: ''
+        }
+      })
+    }
   }
 
   render() {
